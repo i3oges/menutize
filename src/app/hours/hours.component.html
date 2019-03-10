@@ -1,3 +1,8 @@
 <p>
   hours works!
 </p>
+  <div>
+    <ul>
+      <li *ngFor="let day of Object.keys(hours)"> {{day}}: {{hours[day].open}} - {{hours[day].close}}</li>
+    </ul>
+  </div>
