@@ -1,3 +1,9 @@
-<p>
-  location works!
-</p>
+<mat-card id="location">
+  Location:
+  <ul *ngIf="location; else noloc;">
+    <li>{{ location.address }}</li>
+    <li>{{ location.address2 }}</li>
+    <li>{{ location.city }}, {{ location.state }} {{ location.zip }}</li>
+  </ul>
+  <ng-template #noloc>Loading...</ng-template>
+</mat-card>

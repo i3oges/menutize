@@ -1,11 +1,11 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit } from '@angular/core';
 import { Hours } from './hours';
 import { HoursService } from '../services/hours.service';
 
 @Component({
-  selector: "app-hours",
-  templateUrl: "./hours.component.html",
-  styleUrls: ["./hours.component.scss"]
+  selector: 'app-hours',
+  templateUrl: './hours.component.html',
+  styleUrls: ['./hours.component.scss']
 })
 export class HoursComponent implements OnInit {
   constructor(private hoursService: HoursService) {}
@@ -16,6 +16,6 @@ export class HoursComponent implements OnInit {
   }
 
   getHours() {
-    this.hours = this.hoursService.getHours();
+    this.hoursService.getHours().subscribe((data: Hours) => this.hours = data);
   }
 }

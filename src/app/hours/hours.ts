@@ -1,14 +1,14 @@
 export interface OpenCloseTime {
-    open: number,
-    close: number
+    open: number;
+    close: number;
 }
 
 export interface Hours {
-    sunday: OpenCloseTime
-    monday: OpenCloseTime
-    tuesday: OpenCloseTime
-    wednesday: OpenCloseTime
-    thursday: OpenCloseTime
-    friday: OpenCloseTime
-    saturday: OpenCloseTime
+    sunday: OpenCloseTime;
+    monday: OpenCloseTime;
+    tuesday: OpenCloseTime;
+    wednesday: OpenCloseTime;
+    thursday: OpenCloseTime;
+    friday: OpenCloseTime;
+    saturday: OpenCloseTime;
 }
