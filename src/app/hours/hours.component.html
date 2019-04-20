@@ -1,6 +1,6 @@
 <mat-card id="hours-card">
   Hours:
   <ul *ngIf="hours">
-    <li *ngFor="let day of Object.keys(hours)"> {{day}}: {{hours[day].open}} - {{hours[day].close}}</li>
+    <li *ngFor="let day of hours"> {{day.day_of_week}}: {{day.open}} - {{day.close}}</li>
   </ul>
 </mat-card>

@@ -9,7 +9,6 @@ import { HoursService } from '../services/hours.service';
 })
 export class HoursComponent implements OnInit {
   constructor(private hoursService: HoursService) {}
-  Object = Object;
   hours: Hours;
   ngOnInit() {
     this.getHours();
