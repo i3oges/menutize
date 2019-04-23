@@ -1,3 +1,9 @@
-<p>
-  menu works!
-</p>
+<p *ngIf="menuItems">
+  <mat-card *ngFor="let item of menuItems">
+    <mat-card-title>
+      {{ item.name }} ${{ item.price }}
+    </mat-card-title>
+    <mat-card-content>
+      {{ item.description }}
+    </mat-card-content>
+  </mat-card>

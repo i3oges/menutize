@@ -12,6 +12,8 @@ import { LocationComponent } from './location/location.component';
 import { OrderComponent } from './order/order.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AddComponent } from './menu/add/add.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { UpdateComponent } from './location/update/update.component';
 
 @NgModule({
   declarations: [
@@ -21,14 +23,16 @@ import { AddComponent } from './menu/add/add.component';
     HomeComponent,
     LocationComponent,
     OrderComponent,
-    AddComponent
+    AddComponent,
+    UpdateComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
     HttpClientModule

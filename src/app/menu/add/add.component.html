@@ -2,15 +2,17 @@
   Add new menu item:
   <div id="add-menu">
     <mat-form-field>
-      <input matInput placeholder="name">
+      <input matInput placeholder="name" [formControl]="name">
     </mat-form-field>
     <br>
     <mat-form-field>
-      <textarea matInput placeholder="description"></textarea>
+      <textarea matInput placeholder="description" [formControl]="description"></textarea>
     </mat-form-field>
     <br>
     <mat-form-field>
-      <input matInput placeholder="price">
+      <input matInput type="number" placeholder="price" [formControl]="price">
     </mat-form-field>
+    <br>
+    <button mat-button (click)="onAddMenuItem()">Add Menu Item</button>
   </div>
 </mat-card>
