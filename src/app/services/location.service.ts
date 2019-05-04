@@ -11,9 +11,9 @@ export class LocationService {
   constructor(private httpClient: HttpClient) { }
 
   getLocation(): Observable<Location> {
-    return this.httpClient.get<Location>('api/v1/location');
+    return this.httpClient.get<Location>('api/restaurant-info/location');
   }
   updateLocation(location: Location): Observable<any> {
-    return this.httpClient.post<Location>('api/v1/location', location);
+    return this.httpClient.post<Location>('api/restaurant-info/location', location);
   }
 }

@@ -10,6 +10,6 @@ export class HoursService {
   constructor(private httpClient: HttpClient) { }
 
   getHours() {
-    return this.httpClient.get<Hours>('api/v1/hours');
+    return this.httpClient.get<Hours>('api/restaurant-info/hours');
   }
 }
