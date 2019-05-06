@@ -7,7 +7,8 @@ import { LocationComponent } from './location/location.component';
 import { OrderComponent } from './order/order.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AddComponent } from './menu/add/add.component';
-import { UpdateComponent } from './location/update/update.component';
+import { UpdateLocationComponent } from './location/update/update.component';
+import { UpdateHoursComponent } from './hours/update/update.component';
 
 
 const routes: Routes = [
@@ -18,7 +19,8 @@ const routes: Routes = [
   { path: 'hours', component: HoursComponent },
   { path: 'location', component: LocationComponent },
   { path: 'order', component: OrderComponent },
-  { path: 'location/update', component: UpdateComponent }
+  { path: 'location/update', component: UpdateLocationComponent },
+  { path: 'hours/update', component: UpdateHoursComponent }
 ];
 
 @NgModule({

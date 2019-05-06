@@ -1,4 +1,4 @@
-import { Controller, Get, Put } from '@nestjs/common';
+import { Controller, Get, Put, Body } from '@nestjs/common';
 import { LocationService } from './location/location.service';
 import { HoursService } from './hours/hours.service';
 import { Hours } from './hours/hours.entity';
@@ -21,12 +21,12 @@ export class RestaurantInfoController {
   }
 
   @Put('hours')
-  updateHours(): string {
-    return 'updated hours';
+  updateHours(@Body() hours: Hours[]): Promise<Hours[]> {
+    return this.hoursService.update(hours);
   }
 
   @Put('location')
-  updateLocation(): string {
-    return 'updatedLocation';
+  updateLocation(@Body() location: Location): Promise<Location> {
+    return this.locationService.update(location);
   }
 }

@@ -1,0 +1,25 @@
+<mat-card>
+  <ul>
+    <li *ngFor="let day of Object.keys(hours)">
+      {{ day }}:
+      <br />
+      <mat-form-field>
+        <input
+          matInput
+          type="number"
+          placeholder="open"
+          [formControl]="hours[day].open"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          type="number"
+          placeholder="close"
+          [formControl]="hours[day].close"
+        />
+      </mat-form-field>
+    </li>
+  </ul>
+  <button mat-button (click)="onUpdate()">Update</button>
+</mat-card>

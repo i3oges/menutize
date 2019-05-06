@@ -4,11 +4,11 @@ import { Location } from '../location';
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'app-update',
+  selector: 'app-update-location',
   templateUrl: './update.component.html',
   styleUrls: ['./update.component.scss']
 })
-export class UpdateComponent implements OnInit {
+export class UpdateLocationComponent implements OnInit {
   location: Location;
   address = new FormControl('');
   address2 = new FormControl('');

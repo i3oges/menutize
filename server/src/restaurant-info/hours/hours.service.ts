@@ -13,4 +13,8 @@ export class HoursService {
   findAll() {
     return this.hoursRepository.find();
   }
+
+  update(hours: Hours[]) {
+   return this.hoursRepository.save(hours);
+  }
 }

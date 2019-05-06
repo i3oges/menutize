@@ -13,4 +13,8 @@ export class LocationService {
   find(): Promise<Location> {
     return this.locationRepository.findOne();
   }
+
+  update(location: Location) {
+    return this.locationRepository.save(location);
+  }
 }

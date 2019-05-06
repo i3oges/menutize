@@ -12,8 +12,9 @@ import { LocationComponent } from './location/location.component';
 import { OrderComponent } from './order/order.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AddComponent } from './menu/add/add.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { UpdateComponent } from './location/update/update.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { UpdateLocationComponent } from './location/update/update.component';
+import { UpdateHoursComponent } from './hours/update/update.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { UpdateComponent } from './location/update/update.component';
     LocationComponent,
     OrderComponent,
     AddComponent,
-    UpdateComponent,
+    UpdateLocationComponent,
+    UpdateHoursComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +34,8 @@ import { UpdateComponent } from './location/update/update.component';
     MaterialModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [
     HttpClientModule

@@ -14,6 +14,6 @@ export class LocationService {
     return this.httpClient.get<Location>('api/restaurant-info/location');
   }
   updateLocation(location: Location): Observable<any> {
-    return this.httpClient.post<Location>('api/restaurant-info/location', location);
+    return this.httpClient.put<Location>('api/restaurant-info/location', location);
   }
 }
