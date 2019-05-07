@@ -1,0 +1,10 @@
+{
+  "type": "postgres",
+  "host": "pg-dev",
+  "password": "password",
+  "port": 5432,
+  "database": "menutize",
+  "username": "postgres",
+  "entities": ["src/**/*.entity{.ts,.js}"],
+  "synchronize": true
+}

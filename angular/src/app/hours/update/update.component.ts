@@ -17,13 +17,11 @@ export class UpdateHoursComponent implements OnInit {
 
   onUpdate() {
     const hoursArr = [];
-    Object.keys(this.hours).forEach(element => {
-      hoursArr.push({
-        dayOfWeek: element,
-        open: this.hours[element].open.value,
-        close: this.hours[element].close.value
-      });
-    });
+    Object.keys(this.hours).forEach(element => hoursArr.push({
+      dayOfWeek: element,
+      open: this.hours[element].open.value,
+      close: this.hours[element].close.value
+    }));
     this.hoursService.updateHours(hoursArr).subscribe(data => {
       console.log(data);
     });

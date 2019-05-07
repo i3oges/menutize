@@ -14,5 +14,17 @@ services:
     image: adminer
     ports:
       - "8080:8080"
+  angular:
+    build: angular
+    ports:
+      - "4200:4200"
+    links:
+      - nest
+  nest:
+    build: server
+    ports:
+      - "3000:3000"
+    links:
+      - pg-dev
 volumes:
   pgdata:

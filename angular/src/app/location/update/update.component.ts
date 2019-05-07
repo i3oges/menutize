@@ -1,5 +1,5 @@
 import { Component, OnInit} from '@angular/core';
-import { LocationService } from 'src/app/services/location.service';
+import { LocationService } from '../../services/location.service';
 import { Location } from '../location';
 import { FormControl } from '@angular/forms';
 
