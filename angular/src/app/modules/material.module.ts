@@ -6,7 +6,9 @@ import {
   MatButtonModule,
   MatCardModule,
   MatFormFieldModule,
-  MatInputModule
+  MatInputModule,
+  MatSnackBarModule,
+  MatListModule
 } from '@angular/material';
 
 @NgModule({
@@ -17,7 +19,9 @@ import {
     MatButtonModule,
     MatCardModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatSnackBarModule,
+    MatListModule
   ],
   exports: [
     MatMenuModule,
@@ -26,7 +30,9 @@ import {
     MatButtonModule,
     MatCardModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatSnackBarModule,
+    MatListModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

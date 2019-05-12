@@ -2,6 +2,7 @@ import { Component, OnInit} from '@angular/core';
 import { LocationService } from '../../services/location.service';
 import { Location } from '../location';
 import { FormControl } from '@angular/forms';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-update-location',
@@ -16,7 +17,10 @@ export class UpdateLocationComponent implements OnInit {
   state = new FormControl('');
   zip = new FormControl('');
 
-  constructor(private locationService: LocationService) { }
+  constructor(
+    private locationService: LocationService,
+    private matSnackBar: MatSnackBar
+  ) { }
 
   ngOnInit() {
     this.getLocation();
@@ -44,7 +48,9 @@ export class UpdateLocationComponent implements OnInit {
   onUpdateLocation() {
     const location = this.setLocationForm();
     this.locationService.updateLocation(location).subscribe(data => {
-      console.log(data);
+      this.matSnackBar.open('Location updated successfully!', '', {
+        duration: 4000
+      })
     });
   }
 }

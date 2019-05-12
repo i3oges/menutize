@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Hours } from '../hours';
 import { HoursService } from '../../services/hours.service';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-update-hours',
@@ -10,9 +11,23 @@ import { HoursService } from '../../services/hours.service';
 export class UpdateHoursComponent implements OnInit {
   hours: Hours = new Hours();
   Object = Object;
-  constructor(private hoursService: HoursService) { }
+  isUpdated = false;
+  constructor(
+    private hoursService: HoursService,
+    private matSnackBar: MatSnackBar
+  ) { }
 
   ngOnInit() {
+    this.assignInitialValues();
+  }
+
+  assignInitialValues() {
+    this.hoursService.getHours().subscribe((data: any) => {
+      Object.keys(data).forEach((element: any) => {
+        this.hours[data[element].dayOfWeek].open.setValue(data[element].open);
+        this.hours[data[element].dayOfWeek].close.setValue(data[element].close);
+      })
+    });
   }
 
   onUpdate() {
@@ -23,7 +38,9 @@ export class UpdateHoursComponent implements OnInit {
       close: this.hours[element].close.value
     }));
     this.hoursService.updateHours(hoursArr).subscribe(data => {
-      console.log(data);
+      this.matSnackBar.open('Hours updated Successfully', '', {
+        duration: 4000
+      });
     });
   }
 }
