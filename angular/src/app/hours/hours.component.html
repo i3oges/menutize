@@ -4,4 +4,3 @@
     <li *ngFor="let day of hours"> {{day.dayOfWeek}}: {{day.open}} - {{day.close}}</li>
   </ul>
 </mat-card>
-<app-update-hours *ngIf="hours" [prevHours]="hours"></app-update-hours>

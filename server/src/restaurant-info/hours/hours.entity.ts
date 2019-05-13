@@ -2,11 +2,11 @@ import { Entity, Column, PrimaryColumn } from 'typeorm';
 
 @Entity()
 export class Hours {
-  @Column('numeric')
-  open: number;
+  @Column({ type: 'time', nullable: true })
+  open: string;
 
-  @Column('numeric')
-  close: number;
+  @Column({ type: 'time', nullable: true })
+  close: string;
 
   @PrimaryColumn('text')
   dayOfWeek: 'sunday' | 'monday' | 'tuesday' | 'wednesday' | 'thursday' | 'friday' | 'saturday';

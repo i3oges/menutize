@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Hours } from '../hours';
+import { Hour, ControlledHour } from '../hours';
 import { HoursService } from '../../services/hours.service';
 import { MatSnackBar } from '@angular/material';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-update-hours',
@@ -9,9 +10,16 @@ import { MatSnackBar } from '@angular/material';
   styleUrls: ['./update.component.scss']
 })
 export class UpdateHoursComponent implements OnInit {
-  hours: Hours = new Hours();
-  Object = Object;
   isUpdated = false;
+  hours: ControlledHour[] = [
+    {open: new FormControl(''), close: new FormControl(''), dayOfWeek: 'monday'},
+    {open: new FormControl(''), close: new FormControl(''), dayOfWeek: 'tuesday'},
+    {open: new FormControl(''), close: new FormControl(''), dayOfWeek: 'wednesday'},
+    {open: new FormControl(''), close: new FormControl(''), dayOfWeek: 'thursday'},
+    {open: new FormControl(''), close: new FormControl(''), dayOfWeek: 'friday'},
+    {open: new FormControl(''), close: new FormControl(''), dayOfWeek: 'saturday'},
+    {open: new FormControl(''), close: new FormControl(''), dayOfWeek: 'sunday'},
+  ];
   constructor(
     private hoursService: HoursService,
     private matSnackBar: MatSnackBar
@@ -22,20 +30,20 @@ export class UpdateHoursComponent implements OnInit {
   }
 
   assignInitialValues() {
-    this.hoursService.getHours().subscribe((data: any) => {
-      Object.keys(data).forEach((element: any) => {
-        this.hours[data[element].dayOfWeek].open.setValue(data[element].open);
-        this.hours[data[element].dayOfWeek].close.setValue(data[element].close);
+    this.hoursService.getHours().subscribe((data: Hour[]) => {
+      data.forEach((el: Hour, index) => {
+        this.hours[index].open.setValue(el.open);
+        this.hours[index].close.setValue(el.close);
       })
     });
   }
 
   onUpdate() {
-    const hoursArr = [];
-    Object.keys(this.hours).forEach(element => hoursArr.push({
-      dayOfWeek: element,
-      open: this.hours[element].open.value,
-      close: this.hours[element].close.value
+    const hoursArr: Hour[] = [];
+    this.hours.forEach((el: ControlledHour, index) => hoursArr.push({
+      open: this.hours[index].open.value,
+      close: this.hours[index].close.value,
+      dayOfWeek: el.dayOfWeek,
     }));
     this.hoursService.updateHours(hoursArr).subscribe(data => {
       this.matSnackBar.open('Hours updated Successfully', '', {

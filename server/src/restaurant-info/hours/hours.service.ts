@@ -10,8 +10,14 @@ export class HoursService {
     private readonly hoursRepository: Repository<Hours>,
   ) {}
 
-  findAll() {
-    return this.hoursRepository.find();
+  async findAll() {
+    const sorted = [];
+    let hours = await this.hoursRepository.find();
+    ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'].forEach(s => {
+      const found = hours.find(h => h.dayOfWeek === s)
+      sorted.push(found);
+    });
+    return sorted;
   }
 
   update(hours: Hours[]) {

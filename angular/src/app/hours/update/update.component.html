@@ -1,23 +1,23 @@
 <mat-card>
   <mat-list>
-    <mat-list-item *ngFor="let day of Object.keys(hours)">
-      <span matLine>{{ day.toUpperCase() }}:</span>
+    <mat-list-item *ngFor="let day of hours">
+      <span matLine>{{ day.dayOfWeek.toUpperCase() }}:</span>
       <mat-form-field>
         <input
           matLine
           matInput
-          type="number"
+          type="time"
           placeholder="open"
-          [formControl]="hours[day].open"
+          [formControl]="day.open"
         />
       </mat-form-field>
       <mat-form-field>
         <input
           matLine
           matInput
-          type="number"
+          type="time"
           placeholder="close"
-          [formControl]="hours[day].close"
+          [formControl]="day.close"
         />
       </mat-form-field>
     </mat-list-item>
