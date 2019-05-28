@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Hour, ControlledHour } from '../hours';
 import { HoursService } from '../../services/hours.service';
 import { MatSnackBar } from '@angular/material';

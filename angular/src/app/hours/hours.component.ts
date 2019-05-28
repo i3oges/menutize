@@ -38,6 +38,6 @@ export class HoursComponent implements OnInit {
   }
 
   prettyDay(day: string) {
-    return day.slice(0, 1).toUpperCase() + day.slice(1);
+    return day[0].toUpperCase() + day.substr(1);
   }
 }
